@@ -60,14 +60,27 @@ int binarySearchUpper(int array[], int size, int target, int *comparisons) {
     }
 }
 
-void fillRandom(int n, int array[]) {
+void fillRandom(int A[], int n) {
     for (int i = 0; i < n; i++) {
-        array[i] = rand() % 1000; 
+        A[i] = rand() % 1000; 
     }
 }
 
+void PrintMas(int A[], int n){
+    for (int i = 0; i < n; i++){
+        printf("%d ", A[i]);
+    }
+}
+
+void FillDec(int A[], int n) {
+    for (int i = 0; i < n; i++) {
+    A[i] = i + 1;
+    }
+}
+    
+
 int main() {
-    int sizes[] = {100, 500, 1000};
+    int sizes[] = {100,200,300,400,500,600,700,800,900,1000};
     int numSizes = sizeof(sizes) / sizeof(sizes[0]);
 
     printf("| N\t| C1\t| C2\t|\n");
@@ -76,7 +89,7 @@ int main() {
         int n = sizes[i];
         int arr[n];
         srand(time(NULL));
-        fillRandom(n, arr);
+        fillRandom(arr, n);
         shellSort(arr, n);
         int m = rand() % n;
         int key = arr[m];
